@@ -83,7 +83,28 @@ const questions = [
     body,
   };
 
-  const results = await push.send(registrationIds, data);
-  console.log(JSON.stringify(results, 0, 2));
+  try {
+    const results = await push.send(registrationIds, data);
+    checkResults(results);
+  } catch (error) {
+    console.error(error);
+  }
   process.exit();
 })();
+
+const checkResults = (results) => {
+  results.forEach((result) => {
+    checkResult(result);
+  });
+};
+
+const checkResult = (result) => {
+  result.message.forEach((message) => {
+    if (message.error === null) {
+      console.log("Push message sent successfuly!");
+    } else {
+      console.error("Error sending push message");
+    }
+    console.error(message);
+  });
+};
