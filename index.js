@@ -25,6 +25,14 @@ const questions = [
     message: "Input your bundle id:",
   },
   {
+    type: "toggle",
+    name: "production",
+    message: "Environment:",
+    initial: false,
+    active: "production",
+    inactive: "sandbox",
+  },
+  {
     type: "text",
     name: "pushToken",
     message: "Input your APNS token:",
@@ -44,7 +52,16 @@ const questions = [
 (async () => {
   const response = await prompts(questions);
 
-  const { key, pushToken, teamId, keyId, bundleId, title, body } = response;
+  const {
+    key,
+    pushToken,
+    teamId,
+    keyId,
+    bundleId,
+    title,
+    body,
+    production,
+  } = response;
 
   const settings = {
     apn: {
@@ -53,7 +70,7 @@ const questions = [
         keyId,
         teamId,
       },
-      production: false,
+      production,
     },
   };
   const push = new PushNotifications(settings);
