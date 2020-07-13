@@ -1,0 +1,30 @@
+{
+  "name": "test-push",
+  "version": "1.0.0",
+  "description": "Node script for testing push messages",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrej Kolar <andrej.kolar@me.com>",
+  "license": "MIT",
+  "dependencies": {
+    "node-pushnotifications": "^1.4.0",
+    "prompts": "^2.3.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrejKolar/test-push.git"
+  },
+  "keywords": [
+    "node",
+    "push",
+    "apns",
+    "cli"
+  ],
+  "bugs": {
+    "url": "https://github.com/AndrejKolar/test-push/issues"
+  },
+  "homepage": "https://github.com/AndrejKolar/test-push#readme"
+}
