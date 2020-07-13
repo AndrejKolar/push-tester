@@ -115,6 +115,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-
 # certs
 *.p8
+
+# responses
+*.p8.json
