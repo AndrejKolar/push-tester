@@ -4,7 +4,7 @@
   "description": "Node script for testing push messages",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "Andrej Kolar <andrej.kolar@me.com>",
   "license": "MIT",
