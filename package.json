@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "Node script for testing push messages",
   "main": "index.js",
+  "bin": "index.js",
   "scripts": {
     "start": "node index.js"
   },

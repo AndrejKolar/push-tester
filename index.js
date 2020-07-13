@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const PushNotifications = require("node-pushnotifications");
 const prompts = require("prompts");
 
