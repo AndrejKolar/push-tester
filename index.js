@@ -60,11 +60,13 @@ const createPushSettings = ({ key, teamId, keyId, production }) => {
   };
 };
 
-const createMessageData = ({ bundleId, title, body }) => {
+const createMessageData = ({ bundleId, title, body, badge, sound }) => {
   return {
     topic: bundleId,
     title,
     body,
+    badge,
+    sound,
   };
 };
 
@@ -146,6 +148,18 @@ const questions = [
     type: "text",
     name: "body",
     message: "Enter message body:",
+  },
+  {
+    type: "number",
+    name: "badge",
+    message: "Enter app badge:",
+    initial: 1,
+  },
+  {
+    type: "text",
+    name: "sound",
+    message: "Enter notification sound:",
+    initial: "default",
   },
   {
     type: showSave() ? "confirm" : null,
