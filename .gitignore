@@ -117,6 +117,9 @@ dist
 
 # certs
 *.p8
+*.p12
+*.pem
+*.cer
 
 # config
 *.json
