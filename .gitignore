@@ -118,5 +118,5 @@ dist
 # certs
 *.p8
 
-# responses
-*.p8.json
+# config
+*.json

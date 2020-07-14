@@ -11,7 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "node-pushnotifications": "^1.4.0",
-    "prompts": "^2.3.2"
+    "prompts": "^2.3.2",
+    "yargs": "^15.4.1"
   },
   "devDependencies": {},
   "repository": {

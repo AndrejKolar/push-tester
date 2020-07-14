@@ -3,8 +3,105 @@
 const PushNotifications = require("node-pushnotifications");
 const prompts = require("prompts");
 const fs = require("fs");
+const argv = require("yargs")
+  .usage("Usage: npx push-tester [options]")
+  .example("npx push-tester", "Run script")
+  .example(
+    "npx push-tester -c config.push.json",
+    "Run script with params from a config file"
+  )
+  .alias("c", "config")
+  .nargs("c", 1)
+  .describe("c", "Load options from the config file")
+  .help("h")
+  .alias("h", "help")
+  .alias("v", "version").argv;
 
-// prompts.override({ keyId: "fool", teamId: "teamId" });
+// Helpers
+
+const showSave = () => {
+  return !argv.config;
+};
+const showConfig = (prev) => {
+  if (argv.config) {
+    return false;
+  }
+
+  if (!prev) {
+    return false;
+  }
+
+  return true;
+};
+
+const checkArguments = (argv) => {
+  if (argv.config) {
+    const config = readConfig(argv.config);
+    prompts.override(config);
+  }
+};
+
+const readConfig = (config) => {
+  const rawdata = fs.readFileSync(config);
+  const data = JSON.parse(rawdata);
+  return data;
+};
+
+const createPushSettings = ({ key, teamId, keyId, production }) => {
+  return {
+    apn: {
+      token: {
+        key,
+        keyId,
+        teamId,
+      },
+      production,
+    },
+  };
+};
+
+const createMessageData = ({ bundleId, title, body }) => {
+  return {
+    topic: bundleId,
+    title,
+    body,
+  };
+};
+
+const createTokenArray = ({ pushToken }) => {
+  return [pushToken];
+};
+
+const saveResponse = (response) => {
+  const { save, config } = response;
+  if (!save) {
+    return;
+  }
+
+  const toSave = { ...response };
+  delete toSave.save;
+  delete toSave.config;
+
+  let data = JSON.stringify(toSave, null, 2);
+  fs.writeFileSync(config, data);
+};
+
+const checkResults = (results) => {
+  results.forEach((result) => {
+    checkResult(result);
+  });
+};
+
+const checkResult = (result) => {
+  result.message.forEach((message) => {
+    if (message.error === null) {
+      console.log("Push message sent successfuly!");
+    } else {
+      console.error("Error sending push message");
+    }
+    console.error(message);
+  });
+};
 
 const questions = [
   {
@@ -51,14 +148,24 @@ const questions = [
     message: "Enter message body:",
   },
   {
-    type: "confirm",
+    type: showSave() ? "confirm" : null,
     name: "save",
     message: "Save this configuration?",
     initial: true,
   },
+  {
+    type: (prev) => (showConfig(prev) ? "text" : null),
+    name: "config",
+    message: "Enter config filename:",
+    initial: "config.push.json",
+  },
 ];
 
-(async () => {
+// Run script
+
+const run = async () => {
+  checkArguments(argv);
+
   const response = await prompts(questions);
   const pushSettings = createPushSettings(response);
   const tokenArray = createTokenArray(response);
@@ -74,57 +181,6 @@ const questions = [
     console.error(error);
   }
   process.exit();
-})();
-
-const createPushSettings = ({ key, teamId, keyId, production }) => {
-  return {
-    apn: {
-      token: {
-        key,
-        keyId,
-        teamId,
-      },
-      production,
-    },
-  };
 };
 
-const createMessageData = ({ bundleId, title, body }) => {
-  return {
-    topic: bundleId,
-    title,
-    body,
-  };
-};
-
-const createTokenArray = ({ pushToken }) => {
-  return [pushToken];
-};
-
-const saveResponse = ({ save }) => {
-  if (!save) {
-    return;
-  }
-
-  delete response.save;
-
-  let data = JSON.stringify(response, null, 2);
-  fs.writeFileSync("config.p8.json", data);
-};
-
-const checkResults = (results) => {
-  results.forEach((result) => {
-    checkResult(result);
-  });
-};
-
-const checkResult = (result) => {
-  result.message.forEach((message) => {
-    if (message.error === null) {
-      console.log("Push message sent successfuly!");
-    } else {
-      console.error("Error sending push message");
-    }
-    console.error(message);
-  });
-};
+run();
