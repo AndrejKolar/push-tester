@@ -17,6 +17,7 @@ const argv = require("yargs")
   .alias("v", "version").argv;
 const ApnsToken = require("./ApnsToken");
 const ApnsPair = require("./ApnsPair");
+const Firebase = require("./Firebase");
 
 const questions = [
   {
@@ -25,14 +26,19 @@ const questions = [
     message: "Type of push certificate:",
     choices: [
       {
-        title: "Provider Authentication Token",
+        title: "iOS - Provider Authentication Token",
         description: ".p8 token",
         value: "p8",
       },
       {
-        title: "Certificate/Key pair",
-        description: ".pem cert/key pair",
+        title: "iOS - Certificate/Key pair",
+        description: ".pem cert/key",
         value: "pem",
+      },
+      {
+        title: "iOS/Android - Firebase Cloud Messaging",
+        description: "FCM/GCM API key",
+        value: "firebase",
       },
     ],
   },
@@ -65,6 +71,9 @@ const run = async () => {
       break;
     case "pem":
       ApnsPair.run(config);
+      break;
+    case "firebase":
+      Firebase.run(config);
       break;
 
     default:
