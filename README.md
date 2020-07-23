@@ -1,12 +1,12 @@
 # push-tester
 
-`npx` script for testing push messages, no installation required
+`npx` script for testing push messages, no installation required, supports iOS & Android
 
-Supported:
+Supported push message types:
 
 - iOS `.p8` Provider Authentication Tokens
 - iOS `.pem` certificate/key pairs
-- iOS/Android Firebase Cloud Messages `FCM` (also supports GCM)
+- iOS/Android Firebase Cloud Messages `FCM` (also supports `GCM`)
 
 ## Requirements
 
@@ -34,7 +34,7 @@ To show help run the script with the `-h` flag
 
 ## Configuration
 
-An example of the `.p8` configuration file
+Example configuration file for iOS Provider Authentication Tokens (`.p8`)
 
 ```
 {
@@ -52,7 +52,7 @@ An example of the `.p8` configuration file
 }
 ```
 
-An example of the `pem` configuration file
+Example configuration file for iOS cert/key pairs (`.pem`)
 
 ```
 {
@@ -68,7 +68,7 @@ An example of the `pem` configuration file
 }
 ```
 
-An example of the `FCM` configuration file
+Example configuration file for iOS/Android Firebase Cloud Messaging (`FCM`/`GCM`)
 
 ```
 {
@@ -80,12 +80,14 @@ An example of the `FCM` configuration file
 }
 ```
 
-### iOS .pem certificates
+### iOS .pem cert/key pairs
 
-Download the .cer file from [Apple Developer](https://developer.apple.com) and import it to the keychain (needs to be the same keychain where the certificate signing request for the push cert was created).
+For iOS push messages it's recommended to use Provider Authentication Tokens (`.p8`), but if you are still using cert/key pairs convert the `cert.cer` certificate and the `key.p12` private key to `.pem` files.
+
+Download the `.cer` file from [Apple Developer](https://developer.apple.com) and import it to the keychain (needs to be the same keychain where the certificate signing request for the push cert was created).
 Export the `.p12` private key from the certificate
 
-In the directory with both the cert.cer and key.p12 run the following commands to create .pem files
+In the directory with both the `cert.cer` and `key.p12` run the following commands to create `.pem` files
 
 ```
 openssl x509 -in cert.cer -inform DER -outform PEM -out cert.pem
