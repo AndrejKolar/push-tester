@@ -82,11 +82,13 @@ const createQuestions = (config) => {
       type: "text",
       name: "cert",
       message: "Enter your cert.pem path:",
+      initial: "./cert.pem",
     },
     {
       type: "text",
       name: "key",
       message: "Enter your key.pem path:",
+      initial: "./key.pem",
     },
     {
       type: "text",
@@ -102,11 +104,13 @@ const createQuestions = (config) => {
       type: "text",
       name: "title",
       message: "Enter message title:",
+      initial: "Test message",
     },
     {
       type: "text",
       name: "body",
       message: "Enter message body:",
+      initial: "Hello world!",
     },
     {
       type: "number",

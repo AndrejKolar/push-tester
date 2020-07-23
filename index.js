@@ -23,7 +23,7 @@ const questions = [
   {
     type: "select",
     name: "type",
-    message: "Type of push certificate:",
+    message: "Select push message type",
     choices: [
       {
         title: "iOS - Provider Authentication Token",

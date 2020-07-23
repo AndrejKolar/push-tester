@@ -96,6 +96,7 @@ const createQuestions = (config) => {
       type: "text",
       name: "key",
       message: "Enter your p8 path:",
+      initial: "./token.p8",
     },
     {
       type: "text",
@@ -119,11 +120,13 @@ const createQuestions = (config) => {
       type: "text",
       name: "title",
       message: "Enter message title:",
+      initial: "Test message",
     },
     {
       type: "text",
       name: "body",
       message: "Enter message body:",
+      initial: "Hello world!",
     },
     {
       type: "number",

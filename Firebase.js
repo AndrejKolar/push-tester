@@ -90,11 +90,13 @@ const createQuestions = (config) => {
       type: "text",
       name: "title",
       message: "Enter message title:",
+      initial: "Test message",
     },
     {
       type: "text",
       name: "body",
       message: "Enter message body:",
+      initial: "Hello world!",
     },
     {
       type: showSave(config) ? "confirm" : null,
