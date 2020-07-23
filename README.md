@@ -18,17 +18,23 @@ The only requirement is having [Node.js](https://nodejs.org/) installed with the
 npx push-tester
 ```
 
+![normal](https://user-images.githubusercontent.com/1213228/88298133-12a9ca00-cd01-11ea-881e-218c4273bd82.png)
+
 Running the script without any parameters will show the wizard that will guide the user to select the push message type and to enter all the required data. At the end of the wizard it will prompt the user if he wants to save the inputed data into a configuration file.
 
 ```
 npx push-tester -c config.push.json
 ```
 
+![config](https://user-images.githubusercontent.com/1213228/88298139-13daf700-cd01-11ea-8598-8eb7e8c304c6.png)
+
 Use the `-c` flag to provide a configuration file when running the script. It will skip the wizard and immediately send a push message.
 
 ```
 npx push-tester -h
 ```
+
+![help](https://user-images.githubusercontent.com/1213228/88298145-15a4ba80-cd01-11ea-8d86-fbfcade40ea9.png)
 
 To show help run the script with the `-h` flag
 
