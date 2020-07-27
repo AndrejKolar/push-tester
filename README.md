@@ -91,17 +91,16 @@ Example configuration file for iOS/Android Firebase Cloud Messaging (`FCM`/`GCM`
 For iOS push messages it's recommended to use Provider Authentication Tokens (`.p8`), but if you are still using cert/key pairs convert the `cert.cer` certificate and the `key.p12` private key to `.pem` files.
 
 Download the `.cer` file from [Apple Developer](https://developer.apple.com) and import it to the keychain (needs to be the same keychain where the certificate signing request for the push cert was created).
-Export the `.p12` private key from the certificate
+Export the `.p12` private key from the certificate.
 
-In the directory with both the `cert.cer` and `key.p12` run the following commands to create `.pem` files
+In the directory with both the `cert.cer` and `key.p12` run the following commands to create `.pem` files:
 
 ```
 openssl x509 -in cert.cer -inform DER -outform PEM -out cert.pem
 openssl pkcs12 -in key.p12 -out key.pem -nodes
-
 ```
 
-To test the certificates run
+To test the certificates run:
 
 ```
 openssl s_client -connect gateway.push.apple.com:2195 -cert cert.pem -key key.pem
