@@ -42,7 +42,7 @@ To show help run the script with the `-h` flag
 
 Example configuration file for iOS Provider Authentication Tokens (`.p8`)
 
-```
+```json
 {
   "keyId": "KEY_ID",
   "teamId": "TEAM_ID",
@@ -60,11 +60,11 @@ Example configuration file for iOS Provider Authentication Tokens (`.p8`)
 
 Example configuration file for iOS cert/key pairs (`.pem`)
 
-```
+```json
 {
   "cert": "./cert.pem",
   "key": "./key.pem",
-  "bundleId": "com.example.app"
+  "bundleId": "com.example.app",
   "pushToken": "PUSH_TOKEN",
   "title": "title",
   "body": "body",
@@ -76,7 +76,7 @@ Example configuration file for iOS cert/key pairs (`.pem`)
 
 Example configuration file for iOS/Android Firebase Cloud Messaging (`FCM`/`GCM`)
 
-```
+```json
 {
   "key": "KEY",
   "pushToken": "PUSH_TOKEN",
