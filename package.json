@@ -1,6 +1,6 @@
 {
   "name": "push-tester",
-  "version": "1.0.14",
+  "version": "1.1.0",
   "description": "Node script for testing push messages",
   "main": "index.js",
   "bin": "index.js",
