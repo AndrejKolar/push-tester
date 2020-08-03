@@ -15,11 +15,12 @@ const createSettingsToken = ({ key, teamId, keyId, production }) => {
   };
 };
 
-const createSettingsPair = ({ cert, key }) => {
+const createSettingsPair = ({ cert, key, production }) => {
   return {
     apn: {
       cert,
       key,
+      production,
     },
   };
 };

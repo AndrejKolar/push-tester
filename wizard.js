@@ -181,6 +181,14 @@ const pairQuestions = (config) => {
       message: "Enter your bundle id:",
     },
     {
+      type: "toggle",
+      name: "production",
+      message: "Environment:",
+      initial: false,
+      active: "production",
+      inactive: "sandbox",
+    },
+    {
       type: "text",
       name: "pushToken",
       message: "Enter your APNS token:",

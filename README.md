@@ -65,12 +65,13 @@ Example configuration file for iOS cert/key pairs (`.pem`)
   "cert": "./cert.pem",
   "key": "./key.pem",
   "bundleId": "com.example.app",
+  "production": false,
   "pushToken": "PUSH_TOKEN",
   "title": "title",
   "body": "body",
   "badge": 1,
   "sound": "default",
-  "type": "pem",
+  "type": "pem"
 }
 ```
 
