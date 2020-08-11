@@ -2,10 +2,11 @@
   "name": "push-tester",
   "version": "1.1.0",
   "description": "Node script for testing push messages",
-  "main": "index.js",
-  "bin": "index.js",
+  "main": "./src/index.js",
+  "bin": "./src/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "jest --watch"
   },
   "author": "Andrej Kolar <andrej.kolar@me.com>",
   "license": "MIT",
@@ -14,7 +15,9 @@
     "prompts": "^2.3.2",
     "yargs": "^15.4.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^26.3.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AndrejKolar/test-push.git"
