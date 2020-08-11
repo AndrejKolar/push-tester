@@ -5,7 +5,7 @@ const checkResult = (result) => {
     } else {
       console.error("Error sending push message");
     }
-    console.error(message);
+    console.log(message);
   });
 };
 
