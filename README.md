@@ -1,4 +1,4 @@
-# push-tester
+# push-tester ![Node.js CI badge](https://github.com/AndrejKolar/push-tester/workflows/Node.js%20CI/badge.svg) ![Node.js CI badge](https://github.com/AndrejKolar/push-tester/workflows/Node.js%20Package/badge.svg)
 
 `npx` script for testing push messages, no installation required, supports iOS & Android
 
