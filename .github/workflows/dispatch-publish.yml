@@ -4,7 +4,9 @@
 name: Node.js Package
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    tags:
+      description: "Test github package manager"
 
 jobs:
   build:
