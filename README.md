@@ -81,6 +81,7 @@ Example configuration file for iOS/Android Firebase Cloud Messaging (`FCM`/`GCM`
 {
   "key": "KEY",
   "pushToken": "PUSH_TOKEN",
+  "production": false,
   "title": "title",
   "body": "body",
   "type": "firebase"
