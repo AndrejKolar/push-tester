@@ -24,8 +24,6 @@ describe("check", () => {
   });
 
   test("logs message at the end", () => {
-    const spy = jest.spyOn(console, "log").mockImplementation();
-
     const results = [{ message: [{ error: null, test: "ok" }] }];
 
     result.check(results);
