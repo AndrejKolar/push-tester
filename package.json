@@ -12,6 +12,7 @@
   "author": "Andrej Kolar <andrej.kolar@me.com>",
   "license": "MIT",
   "dependencies": {
+    "eslint": "^7.9.0",
     "node-pushnotifications": "^1.4.0",
     "prompts": "^2.3.2",
     "yargs": "^15.4.1"
