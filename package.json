@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "jest",
+    "lint": "eslint ./src",
     "test:watch": "jest --watch"
   },
   "author": "Andrej Kolar <andrej.kolar@me.com>",
