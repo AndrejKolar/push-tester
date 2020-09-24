@@ -15,7 +15,7 @@
   "dependencies": {
     "node-pushnotifications": "^1.4.0",
     "prompts": "^2.3.2",
-    "yargs": "^15.4.1"
+    "yargs": "^16.0.3"
   },
   "devDependencies": {
     "eslint": "^7.9.0",
